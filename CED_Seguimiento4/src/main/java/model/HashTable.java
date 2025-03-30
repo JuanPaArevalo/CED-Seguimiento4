@@ -1,25 +1,38 @@
 package model;
 
+import structures.LinkedList;
 import java.util.HashMap;
 
 public class HashTable {
-    private HashMap<Integer, Integer> map;
+    private static final int SIZE = 100; // Tamaño de la tabla hash
+    private LinkedList[] table;
 
     public HashTable() {
-        map = new HashMap<>();
+        table = new LinkedList[SIZE];
+        for (int i = 0; i < SIZE; i++) {
+            table[i] = new LinkedList();
+        }
+    }
+
+    private int hash(int key) {
+        return Math.abs(key) % SIZE; // Función hash simple
     }
 
     public void put(int key, int value) {
-        map.put(key, value);
+        int index = hash(key);
+        table[index].insert(key, value);
     }
 
     public boolean containsKey(int key) {
-        return map.containsKey(key);
+        int index = hash(key);
+        return table[index].containsKey(key);
     }
 
-    public int get(int key) {
-        return map.get(key);
+    public Integer get(int key) {
+        int index = hash(key);
+        return table[index].get(key);
     }
 }
+
 
 

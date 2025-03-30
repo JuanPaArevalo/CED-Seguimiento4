@@ -16,16 +16,17 @@ public class Main {
 
         System.out.println("Ingrese los elementos del arreglo:");
         for (int i = 0; i < n; i++) {
-            list.insert(scanner.nextInt());
+            int value = scanner.nextInt();
+            list.insert(value, 0); // Solo usamos la clave como valor real del nodo
         }
 
         System.out.println("Ingrese la suma objetivo:");
         int S = scanner.nextInt();
 
-        int[] arr = list.toArray();
-        SubarraySum.findSubarray(arr, S);
-
+        SubarraySum.findSubarray(list, S);
         scanner.close();
     }
 }
+
+
 

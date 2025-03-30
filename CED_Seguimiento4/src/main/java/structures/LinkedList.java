@@ -1,10 +1,10 @@
 package structures;
 
 public class LinkedList {
-    Node head;
+    public Node head;
 
-    public void insert(int value) {
-        Node newNode = new Node(value);
+    public void insert(int key, int value) {
+        Node newNode = new Node(key, value);
         if (head == null) {
             head = newNode;
         } else {
@@ -16,26 +16,20 @@ public class LinkedList {
         }
     }
 
-    public int[] toArray() {
-        int size = getSize();
-        int[] arr = new int[size];
+    public Integer get(int key) {
         Node temp = head;
-        int index = 0;
         while (temp != null) {
-            arr[index++] = temp.value;
+            if (temp.key == key) {
+                return temp.value;
+            }
             temp = temp.next;
         }
-        return arr;
+        return null;
     }
 
-    public int getSize() {
-        int count = 0;
-        Node temp = head;
-        while (temp != null) {
-            count++;
-            temp = temp.next;
-        }
-        return count;
+    public boolean containsKey(int key) {
+        return get(key) != null;
     }
 }
+
 
