@@ -14,7 +14,7 @@ public class Main {
         System.out.println("Ingrese el número de elementos del arreglo:");
         int n = scanner.nextInt();
 
-        System.out.println("Ingrese los elementos del arreglo:");
+        System.out.println("Ingrese los elementos del arreglo de uno por uno:");
         for (int i = 0; i < n; i++) {
             int value = scanner.nextInt();
             list.insert(value, 0); // Solo usamos la clave como valor real del nodo
